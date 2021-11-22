@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:400,700,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="fonts/icomoon/style.css" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+
+    <!-- Style -->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <title>CryptoWeb</title>
+  </head>
+  <body>
+    <div class="content">
+      <div class="container">
+        <div class="row align-items-stretch no-gutters contact-wrap">
+          <div class="col-md-12">
+            <div class="form h-100">
+              <div class="row">
+                <div class="col-md-2">
+                  <h3 style="margin-bottom: 0px;">CryptoWeb</h3>
+                </div>
+                <div class="col-md-10">
+                    <h6 style="padding-top: 20px; margin-bottom: 20px;">by Bambang & Daru</h6>
+                </div>
+              </div>
+              <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <a class="nav-link active" id="text-tab" href="#key">
+                    Generate Key
+                  </a>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <a class="nav-link" id="file-tab" href="#sign"> Signing </a>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <a class="nav-link" id="enigma-tab" href="#verif"> Verifying </a>
+                </li>
+              </ul>
+              <div class="tab-content" id="myTabContent">
+                <div
+                  class="tab-pane fade show active"
+                  id="key"
+                  role="tabpanel"
+                  aria-labelledby="key-tab"
+                >
+                  <form
+                    class="mb-5"
+                    method="post"
+                    id="contactForm"
+                    name="contactForm"
+                  >
+                    <div class="row text-input">
+                      <div class="col-md-6 form-group mb-3">
+                        <label for="" class="col-form-label">Public Key Filename</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          name="pub"
+                          id="pub"
+                          placeholder="Insert Public Key Filename" required
+                        />
+                      </div>
+                      <div class="col-md-6 form-group mb-3">
+                        <label for="" class="col-form-label">Private Key Filename</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          name="pri"
+                          id="pri"
+                          placeholder="Insert Private Key Filename" required
+                        />
+                      </div>
+                    </div>
+                    <input
+                        type="submit"
+                        id="genKey"
+                        class="btn btn-primary rounded-0 py-2 px-4 float-right"
+                        value="Generate Key"
+                    />
+                  </form>
+                </div>
+
+                <div
+                  class="tab-pane fade"
+                  id="sign"
+                  role="tabpanel"
+                  aria-labelledby="file-tab"
+                >
+                <form
+                    class="mb-5"
+                    method="post"
+                    id="contactForm"
+                    name="contactForm"
+                    enctype="multipart/form-data"
+                  >
+                    <div class="row">
+                      <div class="col-md-2 form-group mb-3">
+                        <label for="" class="col-form-label">Input Type</label>
+                        <select class="custom-select file-select" id="intype" name="intype" required>
+                          <option value="text" selected>Text</option>
+                          <option value="file">
+                            File
+                          </option>
+                        </select>
+                      </div>
+                      <div class="col-md-10 form-group mb-3 text">
+                        <label for="" class="col-form-label">Text</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          name="text"
+                          id="text"
+                          placeholder="Insert text" required
+                        />
+                      </div>
+                      <div class="col-md-10 form-group mb-3 file d-none">
+                        <label for="" class="col-form-label">Text File</label>
+                        <div class="custom-file">
+                          <input type="file" class="custom-file-input" id="textfile" name="file" accept="text/plain">
+                          <label class="custom-file-label" for="customFile">Choose file</label>
+                        </div>
+                      </div>
+                    </div>
+
+                  <div class="row">
+                    <div class="col-md-12 form-group mb-3">
+                        <label for="" class="col-form-label">Public Key File</label>
+                        <div class="custom-file">
+                          <input type="file" class="custom-file-input" id="customFile" name="pubfile" required>
+                          <label class="custom-file-label" for="customFile">Choose file</label>
+                        </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-12 form-group mb-3">
+                      <label for="outStyle" class="col-form-label"
+                        >Output Style</label
+                      >
+                      <select class="custom-select" id="outStyle" name="outStyle">
+                        <option value="intext" selected>In Text</option>
+                        <option value="seperated">
+                          Seperated
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <input
+                        type="submit"
+                        id="genSign"
+                        class="btn btn-primary rounded-0 py-2 px-4 float-right"
+                        value="Generate Sign"
+                    />
+                </form>
+              </div>
+
+              <div
+                  class="tab-pane fade"
+                  id="verif"
+                  role="tabpanel"
+                  aria-labelledby="verif-tab"
+                >
+                <form
+                    class="mb-5"
+                    method="post"
+                    id="contactForm"
+                    name="contactForm"
+                    enctype="multipart/form-data"
+                  >
+                  <div class="row">
+                    <div class="col-md-2 form-group mb-3">
+                        <label for="" class="col-form-label">Input Type</label>
+                        <select class="custom-select " id="instyle" name="instyle">
+                          <option value="intext" selected>In Text</option>
+                          <option value="seperated">
+                            Seperated
+                          </option>
+                        </select>
+                    </div>
+                    <div class="col-md-10 form-group mb-3 textfile">
+                      <label for="" class="col-form-label">Text File</label>
+                      <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="textfile" name="file" accept="text/plain" required>
+                        <label class="custom-file-label" for="customFile">Choose file</label>
+                      </div>
+                    </div>
+                  </div>
+                
+                <div class="row">
+                    <div class="col-md-12 form-group mb-3 dsfile d-none">
+                        <label for="" class="col-form-label">Digital Sign File</label>
+                        <div class="custom-file">
+                          <input type="file" class="custom-file-input" id="dsfile" name="dsfile" accept="text/plain">
+                          <label class="custom-file-label" for="customFile">Choose file</label>
+                        </div>
+                      </div>
+                    </div>
+
+                <div class="row">
+                  <div class="col-md-12 form-group mb-3">
+                      <label for="" class="col-form-label">Private Key File</label>
+                      <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="customFile" name="prifile" required>
+                        <label class="custom-file-label" for="customFile">Choose file</label>
+                      </div>
+                  </div>
+                </div>
+
+                <input
+                      type="submit"
+                      id="verify"
+                      class="btn btn-primary rounded-0 py-2 px-4 float-right"
+                      value="Verify"
+                  />
+              </form>
+              </div>
+            </div>
+            <h4>Output</h4>
+              <div style="overflow: auto;">
+                {% if output is defined %}
+                  {{ output }}
+                {% else %}
+                  Insert input first.
+                {% endif %}
+              </div>
+              {% if output is defined %}
+              <form><div class="row"><input
+                type="submit"
+                id="downloadOutput"
+                class="btn btn-primary rounded-0 py-2 px-4"
+                value="Download"
+              /></div></form>
+              {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
