@@ -174,8 +174,10 @@ def verif():
         temp_m.remove(s)
         s = s.replace("<ds>", "").replace("</ds>", "")
         print(s)
-        m = temp_m[0]
-        print(temp_m)
+        if len(temp_m) != 1:
+            m = "\n".join(temp_m)
+        else:
+            m = temp_m[0].strip()
         md = sha256(m)
         print(m)
         pri = open(pri_file.filename, "rt")
